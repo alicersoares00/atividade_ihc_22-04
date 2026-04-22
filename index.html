@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Lattes Acessível</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#conteudo" class="skip-link">Pular para conteúdo principal</a>
+
+<!-- Região para anúncios de leitores de tela -->
+<div id="aria-live-region" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+<header>
+  <div class="header-top">
+    <h1>Dashboard Lattes Acessível</h1>
+
+    <div class="acessibilidade">
+      <label for="contrasteToggle">Alto contraste</label>
+      <input type="checkbox" id="contrasteToggle" aria-label="Ativar modo de alto contraste">
+    </div>
+  </div>
+
+  <nav aria-label="Menu principal">
+    <ul>
+      <li><a href="#cadastro">Cadastro</a></li>
+      <li><a href="#formacao">Formação</a></li>
+      <li><a href="#producao">Produção</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="conteudo">
+
+<!-- CADASTRO -->
+<section id="cadastro" aria-labelledby="titulo-cadastro">
+  <h2 id="titulo-cadastro">Cadastro</h2>
+
+  <form id="formCadastro" novalidate>
+    <fieldset>
+      <legend>Dados pessoais</legend>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nome">Nome completo <span class="sr-only">obrigatório</span> <span aria-hidden="true">*</span></label>
+          <input type="text" id="nome" name="nome" required aria-required="true" aria-describedby="erroNome">
+          <span class="erro" id="erroNome" aria-live="assertive"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail <span class="sr-only">obrigatório</span> <span aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" required aria-required="true" aria-describedby="erroEmail">
+          <span class="erro" id="erroEmail" aria-live="assertive"></span>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Consentimento</legend>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="consentimento" name="consentimento" required aria-required="true" aria-describedby="erroConsentimento">
+        <label for="consentimento">Aceito receber atualizações <span class="sr-only">obrigatório</span> <span aria-hidden="true">*</span></label>
+      </div>
+      <span class="erro" id="erroConsentimento" aria-live="assertive"></span>
+    </fieldset>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+</section>
+
+<!-- FORMAÇÃO -->
+<section id="formacao" aria-labelledby="titulo-formacao">
+  <h2 id="titulo-formacao">Formação Acadêmica</h2>
+
+  <form id="formFormacao" novalidate>
+    <fieldset>
+      <legend>Dados da formação</legend>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="curso">Curso <span class="sr-only">obrigatório</span> <span aria-hidden="true">*</span></label>
+          <input type="text" id="curso" name="curso" required aria-required="true" aria-describedby="erroCurso">
+          <span class="erro" id="erroCurso" aria-live="assertive"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="instituicao">Instituição <span class="sr-only">obrigatório</span> <span aria-hidden="true">*</span></label>
+          <input type="text" id="instituicao" name="instituicao" required aria-required="true" aria-describedby="erroInstituicao">
+          <span class="erro" id="erroInstituicao" aria-live="assertive"></span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="ano">Ano de conclusão <span class="sr-only">obrigatório</span> <span aria-hidden="true">*</span></label>
+          <input type="number" id="ano" name="ano" required aria-required="true" aria-describedby="erroAno" min="1900" max="2099">
+          <span class="erro" id="erroAno" aria-live="assertive"></span>
+        </div>
+      </div>
+    </fieldset>
+
+    <button type="submit">Salvar Formação</button>
+  </form>
+</section>
+
+<!-- PRODUÇÃO -->
+<section id="producao" aria-labelledby="titulo-producao">
+  <h2 id="titulo-producao">Produção Científica</h2>
+
+  <form id="formProducao" novalidate>
+    <fieldset>
+      <legend>Publicação</legend>
+
+      <div class="form-group">
+        <label for="titulo">Título <span class="sr-only">obrigatório</span> <span aria-hidden="true">*</span></label>
+        <input type="text" id="titulo" name="titulo" required aria-required="true" aria-describedby="erroTitulo">
+        <span class="erro" id="erroTitulo" aria-live="assertive"></span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="tipo">Tipo <span class="sr-only">obrigatório</span> <span aria-hidden="true">*</span></label>
+          <select id="tipo" name="tipo" required aria-required="true" aria-describedby="erroTipo">
+            <option value="">Selecione um tipo...</option>
+            <option value="Artigo">Artigo</option>
+            <option value="Evento">Evento</option>
+            <option value="Projeto">Projeto</option>
+          </select>
+          <span class="erro" id="erroTipo" aria-live="assertive"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="anoPub">Ano <span class="sr-only">obrigatório</span> <span aria-hidden="true">*</span></label>
+          <input type="number" id="anoPub" name="anoPub" required aria-required="true" aria-describedby="erroAnoPub" min="1900" max="2099">
+          <span class="erro" id="erroAnoPub" aria-live="assertive"></span>
+        </div>
+      </div>
+    </fieldset>
+
+    <button type="submit">Adicionar</button>
+  </form>
+</section>
+
+<!-- FEEDBACK -->
+<section id="feedback" aria-labelledby="titulo-feedback">
+  <h2 id="titulo-feedback">Feedback</h2>
+
+  <form id="formFeedback" novalidate>
+    <fieldset>
+      <legend>Opinião</legend>
+
+      <div class="form-group">
+        <label for="comentario">Comentário <span class="sr-only">obrigatório</span> <span aria-hidden="true">*</span></label>
+        <textarea id="comentario" name="comentario" required aria-required="true" aria-describedby="erroComentario" rows="4"></textarea>
+        <span class="erro" id="erroComentario" aria-live="assertive"></span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="avaliacao">Avaliação <span class="sr-only">obrigatório</span> <span aria-hidden="true">*</span></label>
+          <select id="avaliacao" name="avaliacao" required aria-required="true" aria-describedby="erroAvaliacao">
+            <option value="">Selecione uma avaliação...</option>
+            <option value="Excelente">Excelente</option>
+            <option value="Bom">Bom</option>
+            <option value="Regular">Regular</option>
+            <option value="Ruim">Ruim</option>
+          </select>
+          <span class="erro" id="erroAvaliacao" aria-live="assertive"></span>
+        </div>
+      </div>
+    </fieldset>
+
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
+</main>
+
+<footer>
+  <p>Projeto de IHC - Dashboard Lattes Acessível</p>
+  <p>Desenvolvido por Alice Soares</p>
+</footer>
+
+<!-- Modal Acessível -->
+<div id="modalOverlay" class="modal-overlay" hidden>
+  <div id="modalAcessivel" class="modal" role="alertdialog" aria-modal="true" aria-labelledby="modalTitulo" aria-describedby="modalMensagem" tabindex="-1">
+    <div class="modal-header">
+      <h2 id="modalTitulo">Aviso</h2>
+      <button id="modalFecharBtn" class="fechar-btn" aria-label="Fechar janela de aviso">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p id="modalMensagem"></p>
+    </div>
+    <div class="modal-footer">
+      <button id="modalOkBtn" class="btn-primary">OK</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
